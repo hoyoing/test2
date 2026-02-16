@@ -1,0 +1,163 @@
+:root {
+  --bg: #081018;
+  --bg-soft: #101b26;
+  --panel: #142434;
+  --line: #2f4f6c;
+  --text: #d7e7f5;
+  --muted: #8ca8c3;
+  --accent: #1dc3b2;
+  --warn: #f29f5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  background: radial-gradient(circle at top, #13273a 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(340px, 620px) minmax(320px, 1fr);
+  gap: 14px;
+  padding: 14px;
+}
+
+.game-pane,
+.debug-pane {
+  min-height: 0;
+}
+
+.game-pane {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.game-header p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.canvas-host {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0f1f30 0%, #0b1520 100%);
+}
+
+.canvas-host canvas {
+  display: block;
+}
+
+.debug-pane {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 10px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 88%, black 12%);
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 0;
+}
+
+.panel h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.control-row label {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.control-row input[type="range"] {
+  width: 100%;
+}
+
+.control-row span {
+  min-width: 34px;
+  text-align: right;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--warn);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: #0f1c28;
+  color: var(--text);
+  border-radius: 7px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: #0d1722;
+  color: var(--text);
+  padding: 9px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+}
+
+pre {
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+  background: #0b1420;
+  border: 1px solid #24384f;
+  border-radius: 8px;
+  padding: 9px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 980px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-host {
+    max-height: 68vh;
+  }
+}

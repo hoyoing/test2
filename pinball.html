@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pinball Map Editor MVP</title>
+  <link rel="stylesheet" href="./pinball.css" />
+</head>
+<body>
+  <div class="app">
+    <section class="game-pane">
+      <div class="game-header">
+        <h1>Pinball Track Editor</h1>
+        <p>클릭으로 점 추가, Enter 확정, Backspace 마지막 점 삭제</p>
+      </div>
+      <div id="canvasHost" class="canvas-host"></div>
+    </section>
+
+    <aside class="debug-pane">
+      <div class="panel">
+        <h2>Controls</h2>
+        <div class="control-row">
+          <label for="thicknessRange">Wall Thickness</label>
+          <input id="thicknessRange" type="range" min="4" max="40" step="1" value="16" />
+          <span id="thicknessValue">16</span>
+        </div>
+        <div class="buttons">
+          <button id="spawnBallBtn" type="button">Spawn Ball</button>
+          <button id="wireframeBtn" type="button">Wireframe: OFF</button>
+          <button id="clearDraftBtn" type="button">Clear Draft</button>
+          <button id="clearMapBtn" type="button">Clear Map</button>
+          <button id="exportBtn" type="button">Export</button>
+          <button id="importBtn" type="button">Import</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Map JSON</h2>
+        <textarea id="mapJson" placeholder='{"thickness": 16, "lines": [[{"x":120,"y":40},{"x":120,"y":760}]]}'></textarea>
+      </div>
+
+      <div class="panel">
+        <h2>Debug Log</h2>
+        <pre id="logBox"></pre>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+  <script src="./pinball.js"></script>
+</body>
+</html>
